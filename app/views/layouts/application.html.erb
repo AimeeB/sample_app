@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-<title>Ruby on Rails Tutorial Sample App | <%= @title %></title>
-<%= csrf_meta_tag %> </head>
+<title><%= web_page_title %></title>
+<%= csrf_meta_tag %> 
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
+<% stylesheet_link_tag :all, :recursive => true  %>
+<%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
+<%= stylesheet_link_tag 'blueprint/print', :media => 'print' %> 
+<!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]--> 
+<%= stylesheet_link_tag 'custom', :media => 'screen' %>
+</head>
 <body>
-<%= yield %>
+	<div class="container"> 
+		￼<%= render 'layouts/header' %>
+		<section class="round">
+			<%= yield %> 
+		</section>
+		<%= render 'layouts/footer' %>
+	</div>
   </body>
 </html>
