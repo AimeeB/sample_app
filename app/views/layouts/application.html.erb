@@ -10,13 +10,14 @@
 <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %> 
 <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]--> 
 <%= stylesheet_link_tag 'custom', :media => 'screen' %>
+<%= javascript_include_tag :defaults %>
 </head>
 <body>
 	<div class="container"> 
 		￼<%= render 'layouts/header' %>
 		<section class="round">
 			<% flash.each do |key, value| %>
-			<div class="flash <%= key %>"><%= value %></div>
+			<%= content_tag(:div, value, :class => "flash #{key}") %>
 			<% end %>
 			<%= yield %> 
 		</section>
